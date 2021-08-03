@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_hardware_delivery,hardware.delivery,model_hardware_delivery,base.group_user,1,1,1,1
+access_product_hardware,product.hardware,model_product_hardware,base.group_user,1,1,1,1
