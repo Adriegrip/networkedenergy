@@ -9,7 +9,7 @@
     'company': '',
     'maintainer': '',
     'website': "",
-    'depends': ['studio_customization', 'web_studio', 'crm'],
+    'depends': ['web_studio', 'crm'],
 
     'data': [
         'security/ir.model.access.csv',
