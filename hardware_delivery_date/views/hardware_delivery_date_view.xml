@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="view_crm_lead_opportunity_hardware_form" model="ir.ui.view">
+            <field name="name">crm.lead.hardware.inherit</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[last()]" position="after">
+                    <page string="Hardware" name="product_hardware" >
+                        <field name="product_hardware">
+                            <tree>
+                                <field name="product_id"/>
+                                <field name="product_group"/>
+                                <field name="product_family"/>
+                                <field name="sales_price"/>
+                                <field name="cost_price"/>
+                                <field name="amount"/>
+                                <field name="total"/>
+                                <field name="start_delivery_date"/>
+                                <field name="end_delivery_date"/>
+                                <field name="period"/>
+                                <field name="number_of_deliveries"/>
+                            </tree>
+                    </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="product_hardware_form" model="ir.ui.view">
+            <field name="name">Product Hardware</field>
+            <field name="model">product.hardware</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="product_id"/>
+                                <field name="product_group"/>
+                                <field name="product_family"/>
+                                <field name="sales_price"/>
+                                <field name="cost_price"/>
+                                <field name="amount"/>
+                                <field name="total"/>
+                            </group>
+                            <group>
+                                <field name="start_delivery_date"/>
+                                <field name="end_delivery_date"/>
+                                <field name="period"/>
+                                <field name="number_of_deliveries"/>
+                                <field name="crm_lead" invisible="1"/>
+                                <button name="create_hardware_delivery_date" type="object"
+                                string="Create delivery" class="oe_highlight"/>
+                            </group>
+                        </group>
+                            <field name="hardware_delivery_date">
+                                <tree>
+                                    <field name="start_delivery_date"/>
+                                    <field name="end_delivery_date"/>
+                                </tree>
+                            </field>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="hardware_delivery_tree" model="ir.ui.view">
+            <field name="name">Hardware Delivery</field>
+            <field name="model">hardware.delivery</field>
+            <field name="arch" type="xml">
+                <tree string="Hardware Delivery" editable="bottom">
+                    <field name="start_delivery_date"/>
+                    <field name="end_delivery_date"/>
+                    <field name="period"/>
+                    <field name="number_of_deliveries"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hardware_delivery_action" model="ir.actions.act_window">
+            <field name="name">Hardware Delivery</field>
+            <field name="res_model">hardware.delivery</field>
+            <field name="view_mode">tree</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Allocation
+                </p>
+            </field>
+        </record>
+
+        <record id="product_hardware_action" model="ir.actions.act_window">
+            <field name="name">Product Hardware</field>
+            <field name="res_model">product.hardware</field>
+            <field name="view_mode">form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Create The First Allocation
+                </p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
