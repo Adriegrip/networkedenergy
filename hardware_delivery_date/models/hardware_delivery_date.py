@@ -57,6 +57,7 @@ class ProductHardware(models.Model):
     hardware_delivery_date = fields.One2many('hardware.delivery', 'delivery_product_hardware', string='Delivery date')
     crm_lead = fields.Many2one('crm.lead')
 
+    @api.onchange('amount')
     def _compute_total(self):
         for rec in self:
             if rec.sales_price and rec.amount:
