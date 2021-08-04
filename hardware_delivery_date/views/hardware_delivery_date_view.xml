@@ -73,8 +73,8 @@
                 <tree string="Hardware Delivery" editable="bottom">
                     <field name="start_delivery_date"/>
                     <field name="end_delivery_date"/>
-                    <field name="period"/>
-                    <field name="number_of_deliveries"/>
+                    <field name="period" invisible='1'/>
+                    <field name="number_of_deliveries"  invisible='1'/>
                 </tree>
             </field>
         </record>
